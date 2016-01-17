@@ -7,11 +7,11 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:fullBackupContent="true">
+        android:theme="@style/AppTheme">
         <service
             android:name=".Connector"
             android:enabled="true"
@@ -19,9 +19,22 @@
             android:permission="">
             <intent-filter>
                 <action android:name="ru.skalix.thwidget.connector" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </service>
+
+        <receiver
+            android:name=".Receiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="ru.skalix.thwidget.receiver" />
+                <action android:name="ru.skalix.thwidget.force" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
